@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AiKnowledgeAssistantApplication {
 
 	public static void main(String[] args) {
+		System.out.println("PROFILE = " + System.getenv("SPRING_PROFILES_ACTIVE"));
+		System.out.println("JWT = " + System.getenv("JWT_SECRET"));
 		SpringApplication.run(AiKnowledgeAssistantApplication.class, args);
 	}
-
 }
