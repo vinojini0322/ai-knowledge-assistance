@@ -30,7 +30,8 @@ public class Conversation extends BaseEntity {
     @OneToMany(
             mappedBy = "conversation",
             cascade = CascadeType.ALL,
-            orphanRemoval = true
+            orphanRemoval = true,
+            fetch = FetchType.LAZY
     )
     private List<Message> messages = new ArrayList<>();
 }

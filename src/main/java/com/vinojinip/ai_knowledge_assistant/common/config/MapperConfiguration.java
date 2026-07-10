@@ -7,5 +7,5 @@ import org.mapstruct.ReportingPolicy;
         componentModel = "spring",
         unmappedTargetPolicy = ReportingPolicy.ERROR
 )
-public class MapperConfiguration {
+public interface MapperConfiguration {
 }
