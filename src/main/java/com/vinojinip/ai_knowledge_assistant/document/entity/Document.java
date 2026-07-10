@@ -21,10 +21,10 @@ public class Document extends BaseEntity {
     )
     private User user;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 255)
     private String fileName;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 100)
     private String fileType;
 
     @Column(nullable = false, columnDefinition = "TEXT")

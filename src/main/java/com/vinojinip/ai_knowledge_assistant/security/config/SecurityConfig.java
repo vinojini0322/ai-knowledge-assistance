@@ -2,7 +2,7 @@ package com.vinojinip.ai_knowledge_assistant.security.config;
 
 import com.vinojinip.ai_knowledge_assistant.security.handler.RestAccessDeniedHandler;
 import com.vinojinip.ai_knowledge_assistant.security.handler.RestAuthenticationEntryPoint;
-import com.vinojinip.ai_knowledge_assistant.security.jwt.JwtAuthenticationFilter;
+import com.vinojinip.ai_knowledge_assistant.security.filter.JwtAuthenticationFilter;
 import com.vinojinip.ai_knowledge_assistant.security.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;

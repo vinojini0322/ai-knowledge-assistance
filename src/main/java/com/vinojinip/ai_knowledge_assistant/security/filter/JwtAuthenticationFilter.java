@@ -1,5 +1,6 @@
-package com.vinojinip.ai_knowledge_assistant.security.jwt;
+package com.vinojinip.ai_knowledge_assistant.security.filter;
 
+import com.vinojinip.ai_knowledge_assistant.security.jwt.JwtService;
 import com.vinojinip.ai_knowledge_assistant.security.service.CustomUserDetailsService;
 import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
