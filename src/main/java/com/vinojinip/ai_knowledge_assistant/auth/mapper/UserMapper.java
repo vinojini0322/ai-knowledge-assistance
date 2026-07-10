@@ -10,7 +10,6 @@ import org.mapstruct.Mapping;
 @Mapper(config = MapperConfiguration.class)
 public interface UserMapper {
 
-
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "password", source = "encodedPassword")
     User toEntity(RegisterRequest request);
