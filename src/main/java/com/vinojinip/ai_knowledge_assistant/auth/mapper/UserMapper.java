@@ -1,5 +1,6 @@
 package com.vinojinip.ai_knowledge_assistant.auth.mapper;
 
+import com.vinojinip.ai_knowledge_assistant.auth.dto.ProfileResponse;
 import com.vinojinip.ai_knowledge_assistant.auth.dto.RegisterRequest;
 import com.vinojinip.ai_knowledge_assistant.auth.dto.UserResponse;
 import com.vinojinip.ai_knowledge_assistant.auth.entity.User;
@@ -16,4 +17,6 @@ public interface UserMapper {
     User toEntity(RegisterRequest request);
 
     UserResponse toResponse(User user);
+
+    ProfileResponse toProfileResponse(User user);
 }

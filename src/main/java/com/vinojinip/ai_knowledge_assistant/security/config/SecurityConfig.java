@@ -43,13 +43,13 @@ public class SecurityConfig {
 
         return http
                 .csrf(AbstractHttpConfigurer::disable)
-
+                .cors(cors -> {
+                })
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(
                                 SessionCreationPolicy.STATELESS
                         )
                 )
-
                 .exceptionHandling(exception ->
                         exception
                                 .authenticationEntryPoint(
