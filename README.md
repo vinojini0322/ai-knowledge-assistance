@@ -143,6 +143,55 @@ Authentication is implemented using JWT and Spring Security.
 The frontend communicates with the backend exclusively through REST APIs.
 
 ---
+---
+
+# Database ER Diagram
+
+```mermaid
+erDiagram
+    USERS ||--o{ CONVERSATIONS : owns
+    USERS ||--o{ DOCUMENTS : uploads
+    CONVERSATIONS ||--o{ MESSAGES : contains
+
+    USERS {
+        UUID id PK
+        VARCHAR email UK
+        VARCHAR password
+        VARCHAR first_name
+        VARCHAR last_name
+        TIMESTAMPTZ created_at
+        TIMESTAMPTZ updated_at
+    }
+
+    CONVERSATIONS {
+        UUID id PK
+        UUID user_id FK
+        VARCHAR title
+        TIMESTAMPTZ created_at
+        TIMESTAMPTZ updated_at
+    }
+
+    MESSAGES {
+        UUID id PK
+        UUID conversation_id FK
+        VARCHAR role
+        TEXT content
+        TIMESTAMPTZ created_at
+        TIMESTAMPTZ updated_at
+    }
+
+    DOCUMENTS {
+        UUID id PK
+        UUID user_id FK
+        VARCHAR file_name
+        VARCHAR file_type
+        TEXT extracted_text
+        TIMESTAMPTZ created_at
+        TIMESTAMPTZ updated_at
+    }
+```
+
+A detailed version is available in [docs/er-diagram.md](docs/er-diagram.md).
 
 # Project Structure
 
