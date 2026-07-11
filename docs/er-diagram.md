@@ -1,7 +1,10 @@
 # Entity Relationship Diagram
 
+The following ER diagram represents the database schema used by the AI Knowledge Assistant.
+
 ```mermaid
 erDiagram
+
     USERS ||--o{ CONVERSATIONS : owns
     USERS ||--o{ DOCUMENTS : uploads
     CONVERSATIONS ||--o{ MESSAGES : contains
@@ -44,28 +47,39 @@ erDiagram
     }
 ```
 
+---
+
 ## Relationships
 
-- One user can own many conversations.
-- One conversation can contain many messages.
-- One user can upload many documents.
-- Deleting a user removes their conversations and documents.
-- Deleting a conversation removes its messages.
+- A **User** can own multiple **Conversations**.
+- A **Conversation** can contain multiple **Messages**.
+- A **User** can upload multiple **Documents**.
+
+---
+
+## Cascade Delete Rules
+
+- Deleting a **User** deletes all associated Conversations.
+- Deleting a **Conversation** deletes all associated Messages.
+- Deleting a **User** deletes all associated Documents.
+
+---
 
 ## Constraints
 
 - `users.email` is unique.
-- `messages.role` is restricted to `USER` or `ASSISTANT`.
-- All primary keys use UUIDs.
-- Foreign keys use cascading deletes.
+- `messages.role` accepts only:
+  - USER
+  - ASSISTANT
+
+---
 
 ## Indexes
 
-- `idx_conversations_user_updated_at`
-    - Optimizes fetching a user's conversations ordered by recent activity.
+The following indexes are created to improve query performance:
 
-- `idx_messages_conversation_created_at`
-    - Optimizes loading messages in chronological order for a conversation.
-
-- `idx_documents_user_created_at`
-    - Optimizes fetching a user's recently uploaded documents.
+| Index | Purpose |
+|--------|---------|
+| idx_conversations_user_updated_at | Fetch user conversations ordered by latest activity |
+| idx_messages_conversation_created_at | Load conversation messages chronologically |
+| idx_documents_user_created_at | Fetch recently uploaded documents |
